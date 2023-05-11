@@ -1,0 +1,5 @@
+ios/Runner/*.swift linguist-vendored
+ios/Runner/*.h linguist-vendored
+ios/RunnerTests/*.swift linguist-vendored
+android/app/src/main/kotlin/com/example/hackaton_app/*.kt linguist-vendored
+* text=auto eol=lf
