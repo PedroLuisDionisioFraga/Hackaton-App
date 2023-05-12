@@ -2,6 +2,13 @@
 
 # Arquitetura
 
+## **Assets**
+Guarda os ativos do meu app
+ * **Fonts**
+    Armazena os estilos das fontes de texto
+ * **Images**
+    Armazena as imagens usadas tanto na documentação, README.md, e no aplicativo
+
 ## **Shared**
 Usada para arquivos compartilhados em todo o projeto.
  * **Utils**
