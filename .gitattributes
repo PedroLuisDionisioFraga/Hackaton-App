@@ -1,3 +1,12 @@
+windows/runner/*.cpp linguist-vendored
+windows/runner/*.h linguist-vendored
+windows/runner/*.txt linguist-vendored
+windows/flutter/*.h linguist-vendored
+windows/flutter/*.cc linguist-vendored
+windows/flutter/*.cmake linguist-vendored
+windows/flutter/*.txt linguist-vendored
+windows/*.cc linguist-vendored
+windows/*.txt linguist-vendored
 ios/Runner/*.swift linguist-vendored
 ios/Runner/*.h linguist-vendored
 ios/RunnerTests/*.swift linguist-vendored
