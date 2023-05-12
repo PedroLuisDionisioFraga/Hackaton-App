@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "395947836794",
+    "project_id": "hackathon-inatel-2023",
+    "storage_bucket": "hackathon-inatel-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395947836794:android:63e657d200a02cf07802c3",
+        "android_client_info": {
+          "package_name": "com.example.hackathon.viasat.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395947836794-tst985mdbc4slt6olpnodcdkqj87ruap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3lM-8QCdd2VTGbYYd1pnvBuBVu3XGPos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395947836794-tst985mdbc4slt6olpnodcdkqj87ruap.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "395947836794-9r13rn0bptt5ifieeuo5ot41n4obhddv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.hackathon.viasat.flutterApplication1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
