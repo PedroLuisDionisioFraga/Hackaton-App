@@ -24,6 +24,7 @@ class FirebaseHelper {
     print("Connection Success");
     print("_app: $_app");
     _auth = FirebaseAuth.instanceFor(app: _app);
+    signOut(); // Para limpar o login guardado anteriormente
   }
 
   // Methods
