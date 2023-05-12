@@ -1,4 +1,4 @@
-# hackaton_app
+# Hackathon App
 
 # Arquitetura
 
