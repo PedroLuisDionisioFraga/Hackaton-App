@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import 'Database/firebase_helper.dart';
+
+void main() async {
+  await FirebaseHelper.firebaseConnection();
   runApp(const MainApp());
 }
 
