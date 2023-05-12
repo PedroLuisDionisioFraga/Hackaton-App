@@ -1,4 +1,4 @@
-package com.example.hackaton_app
+package com.example.hackathon.viasat.flutter_application_1
 
 import io.flutter.embedding.android.FlutterActivity
 
