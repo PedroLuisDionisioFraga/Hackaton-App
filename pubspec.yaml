@@ -9,10 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^2.11.0
-  firebase_auth: ^4.5.0
-  # Para fazer a entrada do telefone
-  mask_text_input_formatter: ^2.4.0
 
 dev_dependencies:
   flutter_test:
