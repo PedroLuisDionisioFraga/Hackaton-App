@@ -18,7 +18,7 @@ Usada para arquivos compartilhados em todo o projeto.
 
 ## **Presentation**
 Organiza a apresentação da aplicação, as páginas dentro de **Pages** lidando com a interface do usuário, a interação com o usuário a exibição dos dados e a rota de telas da aplicação, em **Routes**.
- * **Pages**
+ * ## **Pages**
     Contém as páginas de todo o aplicativo
 
  * ## **Database**
