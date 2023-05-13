@@ -1,3 +1,4 @@
+web/*.html linguist-vendored
 ios/Runner/*.swift linguist-vendored
 ios/Runner/*.h linguist-vendored
 ios/RunnerTests/*.swift linguist-vendored
