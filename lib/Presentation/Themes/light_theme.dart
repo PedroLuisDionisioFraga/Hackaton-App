@@ -23,6 +23,7 @@ class LightTheme {
     colorScheme: const ColorScheme.light().copyWith(
       primary: const Color.fromARGB(255, 247, 247, 247),
       secondary: const Color.fromARGB(255, 228, 1, 1),
+      tertiary: const Color.fromARGB(255, 0, 0, 0),
 
       background: const Color.fromARGB(255, 37, 175, 255),
 
