@@ -21,15 +21,15 @@ class LightTheme {
   static final ThemeData theme = ThemeData(
     useMaterial3: true,
     colorScheme: const ColorScheme.light().copyWith(
-      primary: const Color.fromARGB(255, 247, 247, 247),
+      primary: const Color.fromARGB(255, 63, 154, 240),
       secondary: const Color.fromARGB(255, 228, 1, 1),
       tertiary: const Color.fromARGB(255, 0, 0, 0),
 
       background: const Color.fromARGB(255, 37, 175, 255),
 
       // Gradient
-      primaryContainer: const Color.fromARGB(255, 37, 175, 255),
-      secondaryContainer: const Color.fromARGB(255, 64, 166, 224),
+      primaryContainer: const Color.fromRGBO(0, 114, 223, 100),
+      secondaryContainer: const Color.fromRGBO(0, 223, 197, 100),
       tertiaryContainer: const Color.fromARGB(228, 172, 223, 252),
 
       // Cor do erro
