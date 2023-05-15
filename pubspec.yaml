@@ -1,23 +1,17 @@
-name: flutter_application_1
-description: A new Flutter project.
-publish_to: 'none'
-version: 0.1.0
+name: dart_application_1
+description: A sample command-line application.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
 
 environment:
-  sdk: '>=3.1.0-92.0.dev <4.0.0'
+  sdk: ^3.1.0-92.0.dev
 
+# Add regular dependencies here.
 dependencies:
-  flutter:
-    sdk: flutter
-  firebase_core: ^2.11.0
-  firebase_auth: ^4.5.0
-  # Para fazer a entrada do telefone
-  mask_text_input_formatter: ^2.4.0
+  # path: ^1.8.0
+  http: ^0.13.6
+
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
-
-flutter:
-  uses-material-design: true
+  lints: ^2.0.0
+  test: ^1.21.0
