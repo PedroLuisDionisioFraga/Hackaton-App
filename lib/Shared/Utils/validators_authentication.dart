@@ -31,11 +31,14 @@ class EntriesValidator {
     return password.isInvalidPassword().first;
   }
 
-  static String? validateConfirmPassword(String? password) {
-    if (password == null || password.isEmpty) {
+  static String? validateConfirmPassword({required String? confirmPassword, required String? password}) {
+    if (confirmPassword == null || confirmPassword.isEmpty) {
       return "Campo Obrigatório";
     }
-    return null;
+    if (confirmPassword == password) {
+      return null;
+    }
+    return "As senhas não coincidem";
   }
 
   static String? validatePhone(String? phone) {
