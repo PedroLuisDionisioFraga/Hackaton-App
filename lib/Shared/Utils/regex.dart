@@ -36,7 +36,7 @@ extension Regex on String {
     return RegExp(r"^[0-9]{8}[0]{3}[0-9]{3}$").hasMatch(this);
   }
 
-  bool isNotValidCellPhone() {
+  bool isInvalidPhone() {
     return !RegExp(r"^\([0-9]{2}\) [0-9] [0-9]{4}-[0-9]{4}$").hasMatch(this);
   }
 }
