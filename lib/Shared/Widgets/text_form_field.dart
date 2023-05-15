@@ -48,25 +48,32 @@ class MyTextFormField {
         obscureText = false;
 
   Widget inputField() {
-    return TextFormField(
-      focusNode: focusName,
-      controller: controller,
-      textAlignVertical: TextAlignVertical.center,
-      maxLines: 1,
-      obscureText: obscureText,
-      textInputAction: inputAction,
-      keyboardType: inputType,
-      textCapitalization: capitalization ?? TextCapitalization.none,
-      onFieldSubmitted: onFieldSubmitted,
-      onEditingComplete: onEditingComplete,
-      validator: validator,
-      decoration: InputDecoration(
-        icon: Icon(
-          startIcon,
+    return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Colors.green,
+      ),
+      padding: const EdgeInsets.all(11),
+      child: TextFormField(
+        focusNode: focusName,
+        controller: controller,
+        textAlignVertical: TextAlignVertical.center,
+        maxLines: 1,
+        obscureText: obscureText,
+        textInputAction: inputAction,
+        keyboardType: inputType,
+        textCapitalization: capitalization ?? TextCapitalization.none,
+        onFieldSubmitted: onFieldSubmitted,
+        onEditingComplete: onEditingComplete,
+        validator: validator,
+        decoration: InputDecoration(
+          icon: Icon(
+            startIcon,
+          ),
+          labelText: label,
+          suffixIcon: suffixIcon,
+          helperText: helperText,
         ),
-        labelText: label,
-        suffixIcon: suffixIcon,
-        helperText: helperText,
       ),
     );
   }
