@@ -12,6 +12,7 @@ class MyTextFormField {
   final void Function(String)? onFieldSubmitted;
   final void Function()? onEditingComplete;
   final String? Function(String?)? validator;
+  final String? helperText;
 
   // Constructors
   const MyTextFormField({
@@ -26,6 +27,7 @@ class MyTextFormField {
     this.capitalization,
     this.onEditingComplete,
     this.validator,
+    this.helperText,
   });
   // Para criar a instância da classe
   const MyTextFormField.empty()
@@ -39,7 +41,8 @@ class MyTextFormField {
         onFieldSubmitted = null,
         capitalization = null,
         onEditingComplete = null,
-        validator = null;
+        validator = null,
+        helperText = null;
 
   Widget inputField() {
     return TextFormField(
@@ -59,6 +62,7 @@ class MyTextFormField {
         ),
         labelText: label,
         suffixIcon: suffixIcon,
+        helperText: helperText,
       ),
     );
   }
@@ -75,6 +79,7 @@ class MyTextFormField {
     void Function(String)? onFieldSubmitted,
     void Function()? onEditingComplete,
     String? Function(String?)? validator,
+    String? helperText,
   }) {
     return MyTextFormField(
       label: label ?? this.label,
@@ -88,6 +93,7 @@ class MyTextFormField {
       onFieldSubmitted: onFieldSubmitted ?? this.onFieldSubmitted,
       onEditingComplete: onEditingComplete ?? this.onEditingComplete,
       validator: validator ?? this.validator,
+      helperText: helperText ?? this.helperText,
     );
   }
 }
