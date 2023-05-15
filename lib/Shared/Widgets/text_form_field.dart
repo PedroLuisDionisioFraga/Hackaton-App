@@ -13,6 +13,7 @@ class MyTextFormField {
   final void Function()? onEditingComplete;
   final String? Function(String?)? validator;
   final String? helperText;
+  final bool obscureText;
 
   // Constructors
   const MyTextFormField({
@@ -28,6 +29,7 @@ class MyTextFormField {
     this.onEditingComplete,
     this.validator,
     this.helperText,
+    this.obscureText = false,
   });
   // Para criar a instância da classe
   const MyTextFormField.empty()
@@ -42,7 +44,8 @@ class MyTextFormField {
         capitalization = null,
         onEditingComplete = null,
         validator = null,
-        helperText = null;
+        helperText = null,
+        obscureText = false;
 
   Widget inputField() {
     return TextFormField(
@@ -50,6 +53,7 @@ class MyTextFormField {
       controller: controller,
       textAlignVertical: TextAlignVertical.center,
       maxLines: 1,
+      obscureText: obscureText,
       textInputAction: inputAction,
       keyboardType: inputType,
       textCapitalization: capitalization ?? TextCapitalization.none,
