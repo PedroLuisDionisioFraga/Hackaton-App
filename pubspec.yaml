@@ -13,6 +13,8 @@ dependencies:
   firebase_auth: ^4.5.0
   # Para fazer a entrada do telefone
   mask_text_input_formatter: ^2.4.0
+  flutter_animate: ^4.1.1+1
+  dotted_decoration: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -31,13 +33,13 @@ flutter:
           weight: 300
 
   assets:
-    - Assets/icon.png
-    - Assets/cloud.png
-    - Assets/viasaticon.jpeg
-    - Assets/application.png
-    - Assets/check-list.png
-    - Assets/neural.png
-    - Assets/report.png
-    - Assets/speedometer.png
-    - Assets/warning.png
-    - Assets/chatbot.png
+    - Assets/Images/icon.png
+    - Assets/Images/cloud.png
+    - Assets/Images/viasaticon.jpeg
+    - Assets/Images/application.png
+    - Assets/Images/check-list.png
+    - Assets/Images/neural.png
+    - Assets/Images/report.png
+    - Assets/Images/speedometer.png
+    - Assets/Images/warning.png
+    - Assets/Images/chatbot.png
