@@ -191,7 +191,7 @@ Future<void> handleSocketConnection(int port) async {
       map.forEach((key, value) {
         print("Requisição: $key");
         // Percorrendo os valores do tipo de consumo
-        value.forEach((k, v) {
+        (value as Map<String, dynamic>).forEach((k, v) {
           switch (k) {
             case "total":
               total = v;
