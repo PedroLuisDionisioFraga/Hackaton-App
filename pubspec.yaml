@@ -29,3 +29,15 @@ flutter:
           weight: 700
         - asset: Assets/Fonts/Inter-Light.ttf
           weight: 300
+
+    assets:
+    - Assets/icon.png
+    - Assets/cloud.png
+    - Assets/viasaticon.jpeg
+    - Assets/application.png
+    - Assets/check-list.png
+    - Assets/neural.png
+    - Assets/report.png
+    - Assets/speedometer.png
+    - Assets/warning.png
+    - Assets/chatbot.png
