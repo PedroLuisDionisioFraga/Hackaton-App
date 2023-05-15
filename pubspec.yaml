@@ -30,7 +30,7 @@ flutter:
         - asset: Assets/Fonts/Inter-Light.ttf
           weight: 300
 
-    assets:
+  assets:
     - Assets/icon.png
     - Assets/cloud.png
     - Assets/viasaticon.jpeg
