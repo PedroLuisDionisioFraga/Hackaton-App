@@ -46,7 +46,8 @@ class LightTheme {
       ),
       titleLarge: TextStyle(
         fontSize: 25,
-        fontWeight: FontWeight.bold,
+        fontFamily: "Inter",
+        fontWeight: FontWeight.w700,
       ),
     ),
     textButtonTheme: const TextButtonThemeData(
