@@ -84,6 +84,7 @@ class MyTextFormField {
     void Function()? onEditingComplete,
     String? Function(String?)? validator,
     String? helperText,
+    bool? obscureText,
   }) {
     return MyTextFormField(
       label: label ?? this.label,
@@ -98,6 +99,7 @@ class MyTextFormField {
       onEditingComplete: onEditingComplete ?? this.onEditingComplete,
       validator: validator ?? this.validator,
       helperText: helperText ?? this.helperText,
+      obscureText: obscureText ?? this.obscureText,
     );
   }
 }
