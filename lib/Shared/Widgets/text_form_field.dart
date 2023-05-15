@@ -10,6 +10,7 @@ class MyTextFormField {
   final IconButton? suffixIcon;
   final TextCapitalization? capitalization;
   final void Function(String)? onFieldSubmitted;
+  final void Function()? onEditingComplete;
 
   // Constructors
   const MyTextFormField({
@@ -22,6 +23,7 @@ class MyTextFormField {
     this.suffixIcon,
     this.onFieldSubmitted,
     this.capitalization,
+    this.onEditingComplete
   });
   // Para criar a instância da classe
   const MyTextFormField.empty()
@@ -33,7 +35,8 @@ class MyTextFormField {
         focusName = null,
         suffixIcon = null,
         onFieldSubmitted = null,
-        capitalization = null;
+        capitalization = null,
+        onEditingComplete = null;
 
   Widget inputField() {
     return TextFormField(
@@ -45,6 +48,7 @@ class MyTextFormField {
       keyboardType: inputType,
       textCapitalization: capitalization ?? TextCapitalization.none,
       onFieldSubmitted: onFieldSubmitted,
+      onEditingComplete: onEditingComplete,
       decoration: InputDecoration(
         icon: Icon(
           startIcon,
@@ -65,6 +69,7 @@ class MyTextFormField {
     FocusNode? focusName,
     IconButton? suffixIcon,
     void Function(String)? onFieldSubmitted,
+    void Function()? onEditingComplete,
   }) {
     return MyTextFormField(
       label: label ?? this.label,
@@ -76,6 +81,7 @@ class MyTextFormField {
       focusName: focusName ?? this.focusName,
       suffixIcon: suffixIcon ?? this.suffixIcon,
       onFieldSubmitted: onFieldSubmitted ?? this.onFieldSubmitted,
+      onEditingComplete: onEditingComplete ?? this.onEditingComplete,
     );
   }
 }
