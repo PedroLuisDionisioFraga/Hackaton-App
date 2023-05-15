@@ -31,6 +31,13 @@ class EntriesValidator {
     return password.isInvalidPassword().first;
   }
 
+  static String? validateConfirmPassword(String? password) {
+    if (password == null || password.isEmpty) {
+      return "Campo Obrigatório";
+    }
+    return null;
+  }
+
   static String? validatePhone(String? phone) {
     if (phone == null || phone.isEmpty) {
       return "Campo Obrigatório";
