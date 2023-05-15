@@ -44,6 +44,10 @@ class LightTheme {
         color: textColor,
         fontSize: 12.5,
       ),
+      titleLarge: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     textButtonTheme: const TextButtonThemeData(
       style: ButtonStyle(
@@ -71,7 +75,6 @@ class LightTheme {
       color: Colors.blueGrey,
       size: 22,
     ),
-
 
     /*
     */
