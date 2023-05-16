@@ -1,10 +1,7 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Shared/Utils/task.dart';
 import 'package:flutter_application_1/Shared/Utils/validators_authentication.dart';
 import '../../../Database/firebase_helper.dart';
-import '../../../Shared/Widgets/app_bar.dart';
 import '../../../Shared/Widgets/text_form_field.dart';
 
 class SignUpPage extends StatefulWidget {

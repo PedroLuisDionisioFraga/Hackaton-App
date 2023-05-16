@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/Presentation/Home/Sessions/about_us.dart';
 import 'package:flutter_application_1/Presentation/Home/Sessions/more_informations.dart';
 import 'package:flutter_application_1/Presentation/Home/Sessions/our_products.dart';
+import 'package:flutter_application_1/Shared/Utils/gradient.dart';
 import '../../Errors/not_found_session_exception.dart';
 import '../../Shared/Widgets/app_bar.dart';
 
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey session1 = GlobalKey();
   final GlobalKey session2 = GlobalKey();
   final GlobalKey session3 = GlobalKey();
-  //final GlobalKey session4 = GlobalKey();
+  final GlobalKey session4 = GlobalKey();
   //final GlobalKey session5 = GlobalKey();
 
   void onMenuClick(String value) {
@@ -47,17 +48,15 @@ class _HomePageState extends State<HomePage> {
       case "Nossos Produtos":
         renderBox = session1.currentContext!.findRenderObject() as RenderBox;
         break;
-      case "Sobre nós":
-        renderBox = session2.currentContext!.findRenderObject() as RenderBox;
-        break;
       case "Mais informações":
-        renderBox = session3.currentContext!.findRenderObject() as RenderBox;
+        print("oi");
+        renderBox = session2.currentContext!.findRenderObject() as RenderBox;
         break;
       default:
         throw NotFoundSessionException("Sessão não encontrada");
     }
     // Pegando a posição da sessão, "Offset.zero" pega o topo da aplicação
-    final Offset offSet = renderBox.localToGlobal(const Offset(0, -50));
+    final Offset offSet = renderBox.localToGlobal(const Offset(0, -40));
     // Indo pra sessão desejada
     scrollController.animateTo(
       offSet.dy,
@@ -81,12 +80,8 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         controller: scrollController,
         child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: <Color>[Color.fromRGBO(0, 114, 223, 100), Color.fromRGBO(0, 223, 197, 100)],
-            ),
+          decoration: BoxDecoration(
+            gradient: MyGradient.getGradient(context),
           ),
           child: Column(
             // Dividindo a página em sessões
@@ -96,8 +91,8 @@ class _HomePageState extends State<HomePage> {
               const IncluiStack(),
               //ícone principal e tudo mais
               OurProductsSession(key: session1),
-              AboutUsSession(key: session2),
-              //MoreInformationSession(key: session3),
+              AboutUsSession(key: session4),
+              MoreInformationSession(key: session2),
               //parte preta da página
               BottomPage(key: session3),
             ],
@@ -378,26 +373,29 @@ class BottomPage extends StatelessWidget {
         child: Row(
           children: [
             ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-                child: const Text(
-                  'Quem somos',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                )),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+              child: const Text(
+                'Quem somos',
+                style: TextStyle(fontSize: 15, color: Colors.white),
+              ),
+            ),
             ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-                child: const Text(
-                  'Política e termos',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                )),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+              child: const Text(
+                'Política e termos',
+                style: TextStyle(fontSize: 15, color: Colors.white),
+              ),
+            ),
             ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
-                child: const Text(
-                  'Fale conosco',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ))
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+              child: const Text(
+                'Fale conosco',
+                style: TextStyle(fontSize: 15, color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),

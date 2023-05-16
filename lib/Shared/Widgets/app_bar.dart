@@ -53,6 +53,7 @@ class MainButtons extends StatelessWidget {
           const Expanded(
             child: Spacer(),
           ),
+          //! Botões
           Padding(
             padding: const EdgeInsets.only(left: 8.0, right: 8),
             child: SizedBox(
