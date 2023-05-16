@@ -1,7 +1,10 @@
 import 'dart:convert';
 
 void main() {
-  String jsonString = '{"others":{"total":"121.00B","download":"66.00B","upload":"55.00B"},"https":{"total":"121.00B","download":"66.00B","upload":"55.00B"}}';
+  String jsonString = 'b\'{"https":{"total":"52.18KB","download":"47.98KB","upload":"4.19KB"}}\'';
+  print(jsonString);
+  jsonString = jsonString.substring(2, jsonString.length - 1);
+  print(jsonString);
   Map<String, dynamic> data = json.decode(jsonString);
 
   //print("map: $map");

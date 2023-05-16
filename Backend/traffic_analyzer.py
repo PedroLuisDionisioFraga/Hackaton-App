@@ -405,16 +405,18 @@ def send_traffic_by_process():
             get_connections()
             json = encode_traffic_by_process()
 
-            response = (
-                'HTTP/1.1 200 OK\r\n'
-                'Content-Type: application/json\r\n'
-                'Access-Control-Allow-Origin: *\r\n'
-                'Access-Control-Allow-Headers: Content-Type\r\n'
-                'Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n'
-                f'Content-Length: {len(json)}\r\n'
-                '\r\n'
-                f'{json}\r\n'
-            )
+            # response = (
+            #     'HTTP/1.1 200 OK\r\n'
+            #     'Content-Type: application/json\r\n'
+            #     'Access-Control-Allow-Origin: *\r\n'
+            #     'Access-Control-Allow-Headers: Content-Type\r\n'
+            #     'Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n'
+            #     f'Content-Length: {len(json)}\r\n'
+            #     '\r\n'
+            #     f'{json}\r\n'
+            # )
+
+            response = (f'{json}\r\n')
 
             try:
                 client_socket.sendall(response.encode())
@@ -541,8 +543,9 @@ if __name__ == "__main__":
     traffic_by_protocol_thread = Thread(target=send_traffic_by_protocol)
     traffic_by_protocol_thread.start()
 
-    traffic_by_host_thread = Thread(target=send_traffic_by_host)
-    traffic_by_host_thread.start()
+    # Não precisamos dessa porta aberta
+    # traffic_by_host_thread = Thread(target=send_traffic_by_host)
+    # traffic_by_host_thread.start()
 
      # Starts network sniffing
     print("Network sniffer initialized.")
