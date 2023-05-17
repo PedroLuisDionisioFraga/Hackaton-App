@@ -89,8 +89,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Lista de tasks
-    final Widget taskList = Task.tasks(tasks);
     //* Username
     final Widget usernameField = basicInput
         .copyWith(
@@ -170,71 +168,66 @@ class _SignUpPageState extends State<SignUpPage> {
         .inputField();
 
     return Scaffold(
-      body: Column(
-        children: [
-          const Align(
-            alignment: Alignment.topCenter,
-            //child: MainButtons(),
-          ),
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.4,
-              child: Card(
-                color: const Color.fromARGB(255, 255, 193, 7),
-                child: Form(
-                  key: formKey,
-                  child: ListView(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 27.5),
-                    shrinkWrap: true,
-                    children: [
-                      const SizedBox(height: 20),
-                      Align(
-                        child: Text(
-                          "Cadastrar-se",
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      usernameField,
-                      const SizedBox(height: 30),
-                      emailField,
-                      const SizedBox(height: 30),
-                      passwordField,
-                      const SizedBox(height: 30),
-                      taskList,
-                      const SizedBox(height: 30),
-                      confirmPasswordField,
-                      const SizedBox(height: 30),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 10, right: 15, top: 20),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              print(isPasswordValid);
-                              if (formKey.currentState!.validate()) {
-                                formKey.currentState!.save();
-                                setState(() {
-                                  isPasswordValid = true;
-                                });
-                                FirebaseHelper.signUp(name: username.text, email: email.text, password: password.text);
-                              } else {
-                                setState(() {
-                                  isPasswordValid = false;
-                                });
-                              }
-                            },
-                            child: const Text("Cadastro"),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+      body: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.4,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
             ),
           ),
-        ],
+          child: Form(
+            key: formKey,
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 27.5),
+              shrinkWrap: true,
+              children: [
+                const SizedBox(height: 20),
+                Align(
+                  child: Text(
+                    "Cadastrar-se",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+                const SizedBox(height: 30),
+                usernameField,
+                const SizedBox(height: 30),
+                emailField,
+                const SizedBox(height: 30),
+                passwordField,
+                // const SizedBox(height: 30),
+                // taskList,
+                const SizedBox(height: 30),
+                confirmPasswordField,
+                const SizedBox(height: 30),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10, right: 15, top: 20),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        print(isPasswordValid);
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          setState(() {
+                            isPasswordValid = true;
+                          });
+                          FirebaseHelper.signUp(name: username.text, email: email.text, password: password.text);
+                        } else {
+                          setState(() {
+                            isPasswordValid = false;
+                          });
+                        }
+                      },
+                      child: const Text("Cadastro"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
