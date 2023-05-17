@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Presentation/Pages/Authentication/log_in.dart';
 import 'package:flutter_application_1/Presentation/Pages/Authentication/sign_up.dart';
+import 'package:flutter_application_1/Presentation/Pages/main_screen.dart';
 import 'Database/firebase_helper.dart';
 import 'Presentation/Themes/dark_theme.dart';
 import 'Presentation/Themes/light_theme.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
 import 'Presentation/Home/homepage.dart';
 
 void main() async {
@@ -26,10 +27,11 @@ class MainApp extends StatelessWidget {
       routes: {
         '/homepage': (context) => const HomePage(),
         '/SignUpPage': (context) => const SignUpPage(),
-        // '/mainPage': (context) => const MainScreen(),
+        '/LoginPage': (context) => const LoginPage(),
+        '/mainPage': (context) => const MainMenu(),
         // '/monitoringPage': (context) => MonitoringPage(),
       },
-      home: const InitialScreen(),
+      home: const MainMenu(),
     );
   }
 }
