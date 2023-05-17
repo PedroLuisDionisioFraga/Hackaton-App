@@ -124,10 +124,14 @@ class MainButtons extends StatelessWidget {
                 height: screenHeight * 0.05,
                 width: screenWidth * 0.1,
                 child: OutlinedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Fazer login',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/LoginPage');
+                  },
+                  child: const Expanded(
+                    child: Text(
+                      'Fazer login',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                    ),
                   ),
                 ),
               ),
@@ -144,9 +148,11 @@ class MainButtons extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushNamed('/SignUpPage');
                   },
-                  child: const Text(
-                    'Realizar cadastro',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  child: const Expanded(
+                    child: Text(
+                      'Realizar cadastro',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                    ),
                   ),
                 ),
               ),
