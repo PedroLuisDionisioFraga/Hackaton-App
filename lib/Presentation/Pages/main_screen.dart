@@ -247,7 +247,7 @@ class _CloudsMainState extends State<CloudsMain> {
                         message: 'Aplicativos em uso',
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushNamed('/monitoringPage');
+                            Navigator.of(context).pushNamed('/Connections');
                           },
                           child: Container(
                               height: 100,
@@ -272,7 +272,7 @@ class _CloudsMainState extends State<CloudsMain> {
                         child: Tooltip(
                           message: 'Protocolos',
                           child: GestureDetector(
-                            //onTap: () => Navigator.of(context).pushNamed('/homePage'),
+                            onTap: () => Navigator.of(context).pushNamed('/ChartPie'),
                             child: Container(
                               height: 100,
                               width: 100,
@@ -295,20 +295,23 @@ class _CloudsMainState extends State<CloudsMain> {
                       padding: const EdgeInsets.only(left: 160, top: 100),
                       child: Tooltip(
                         message: 'Alertas',
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 5),
-                            child: Container(
-                                decoration: const BoxDecoration(
-                              image: DecorationImage(image: AssetImage('Assets/Images/warning.png'), fit: BoxFit.contain),
-                            )),
-                          ),
-                        ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                        child: GestureDetector(
+                          //onTap: () => Navigator.of(context).pushNamed('/homePage'),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 5),
+                              child: Container(
+                                  decoration: const BoxDecoration(
+                                image: DecorationImage(image: AssetImage('Assets/Images/warning.png'), fit: BoxFit.contain),
+                              )),
+                            ),
+                          ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                        ),
                       ),
                     ),
                   ],
@@ -328,67 +331,80 @@ class _CloudsMainState extends State<CloudsMain> {
                   alignment: Alignment.topLeft,
                   child: Tooltip(
                     message: 'Velocidade',
-                    child: Container(
-                      height: 100,
-                      width: 100,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 25, left: 25, right: 25, bottom: 15),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(image: AssetImage('Assets/Images/speedometer.png'), fit: BoxFit.contain),
+                    child: GestureDetector(
+                      onTap: () => Navigator.of(context).pushNamed('/speedometer'),
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 25, left: 25, right: 25, bottom: 15),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(image: AssetImage('Assets/Images/speedometer.png'), fit: BoxFit.contain),
+                            ),
                           ),
                         ),
-                      ),
-                    ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                      ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 150, top: 200),
                   child: Tooltip(
                     message: "Conexões",
-                    child: Container(
-                      height: 80,
-                      width: 80,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
-                        child: Container(
-                            decoration: const BoxDecoration(
-                          image: DecorationImage(image: AssetImage('Assets/Images/neural.png'), fit: BoxFit.contain),
-                        )),
-                      ),
-                    ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/ConnectionsApp');
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 80,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
+                          child: Container(
+                              decoration: const BoxDecoration(
+                            image: DecorationImage(image: AssetImage('Assets/Images/neural.png'), fit: BoxFit.contain),
+                          )),
+                        ),
+                      ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 280),
                   child: Tooltip(
                     message: 'Relatório Completo',
-                    child: Container(
-                      height: 100,
-                      width: 100,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 25, left: 25, right: 25, bottom: 15),
-                        child: Container(
-                            decoration: const BoxDecoration(
-                          image: DecorationImage(image: AssetImage('Assets/Images/report.png'), fit: BoxFit.contain),
-                        )),
-                      ),
-                    ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/monitoringPage');
+                      },
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(image: AssetImage('Assets/Images/cloud.png'), fit: BoxFit.cover),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 25, left: 25, right: 25, bottom: 15),
+                          child: Container(
+                              decoration: const BoxDecoration(
+                            image: DecorationImage(image: AssetImage('Assets/Images/report.png'), fit: BoxFit.contain),
+                          )),
+                        ),
+                      ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }

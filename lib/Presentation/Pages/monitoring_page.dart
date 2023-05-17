@@ -7,55 +7,64 @@ import 'main_screen.dart';
 import 'pie_chart.dart';
 import 'speedometer.dart';
 
-//para arrumar a lista de apps, só vai ser preciso passar esses apps para essa lista
-//lista de apps
-final List<String> apps = ['Netflix', 'Amazon', 'Google'];
+class ConnectionsApp extends StatelessWidget {
+  const ConnectionsApp({super.key});
 
-Widget createContainersApp() {
-  return Column(
-    children: apps.map((texto) {
-      return Container(
-        width: 200,
-        height: 50,
-        decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.all(Radius.circular(20))),
-        margin: const EdgeInsets.all(10),
-        child: Center(
-          child: Text(
-            texto,
-            style: const TextStyle(
-              color: Color.fromARGB(255, 85, 85, 85),
-              fontSize: 18,
+  @override
+  Widget build(BuildContext context) {
+    //para arrumar a lista de apps, só vai ser preciso passar esses apps para essa lista
+    //lista de apps
+    final List<String> apps = ['Netflix', 'Amazon', 'Google'];
+    return Column(
+      children: apps.map((texto) {
+        return Container(
+          width: 200,
+          height: 50,
+          decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.all(Radius.circular(20))),
+          margin: const EdgeInsets.all(10),
+          child: Center(
+            child: Text(
+              texto,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 85, 85, 85),
+                fontSize: 18,
+              ),
             ),
           ),
-        ),
-      );
-    }).toList(),
-  );
+        );
+      }).toList(),
+    );
+    ;
+  }
 }
 
-//lista de conexoes
-final List<String> connections = ['Celular de Gustavo', 'Computador de Rosemeire', 'Coleira Bluetooth da Nina'];
+class ConnectionsContainer extends StatelessWidget {
+  const ConnectionsContainer({super.key});
 
-Widget createContainersConnection() {
-  return Column(
-    children: connections.map((connect) {
-      return Container(
-        width: 200,
-        height: 50,
-        decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.all(Radius.circular(20))),
-        margin: const EdgeInsets.all(10),
-        child: Center(
-          child: Text(
-            connect,
-            style: const TextStyle(
-              color: Color.fromARGB(255, 85, 85, 85),
-              fontSize: 15,
+  @override
+  Widget build(BuildContext context) {
+    //lista de conexoes
+    final List<String> connections = ['Celular de Gustavo', 'Computador de Rosemeire', 'Coleira Bluetooth da Nina'];
+    return Column(
+      children: connections.map((connect) {
+        return Container(
+          width: 200,
+          height: 50,
+          decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.all(Radius.circular(20))),
+          margin: const EdgeInsets.all(10),
+          child: Center(
+            child: Text(
+              connect,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 85, 85, 85),
+                fontSize: 15,
+              ),
             ),
           ),
-        ),
-      );
-    }).toList(),
-  );
+        );
+      }).toList(),
+    );
+  }
 }
 
 //tela principal
@@ -110,13 +119,13 @@ class _CenterMonitoringState extends State<CenterMonitoring> {
       height: MediaQuery.of(context).size.height * 0.92,
       width: MediaQuery.of(context).size.width * 0.8,
       color: const Color.fromARGB(0, 255, 193, 7),
-      child: MyHomePage(),
+      child: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -146,11 +155,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 400,
                 child: ListView(
                   padding: const EdgeInsets.all(8),
-                  children: <Widget>[
+                  children: const <Widget>[
                     Padding(
                       //necessário fazer um for para todos os apps
-                      padding: const EdgeInsets.all(8.0),
-                      child: createContainersApp(),
+                      padding: EdgeInsets.all(8.0),
+                      child: ConnectionsApp(),
                     ),
                   ],
                 ),
@@ -334,11 +343,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 800,
                 child: ListView(
                   padding: const EdgeInsets.all(8),
-                  children: <Widget>[
+                  children: const <Widget>[
                     Padding(
                       //necessário fazer um for para todos os apps
-                      padding: const EdgeInsets.all(8.0),
-                      child: createContainersConnection(),
+                      padding: EdgeInsets.all(8.0),
+                      child: ConnectionsContainer(),
                     ),
                   ],
                 ),

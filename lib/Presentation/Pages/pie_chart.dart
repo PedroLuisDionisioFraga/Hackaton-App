@@ -18,7 +18,7 @@ class ChartPie extends StatelessWidget {
       Colors.redAccent,
       Colors.yellowAccent,
     ];
-    
+
     return Scaffold(
       body: PieChart(
         dataMap: dataMap,

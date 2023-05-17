@@ -28,7 +28,7 @@ class _ContainerListState extends State<ContainerList> {
               initiallyExpanded: itemExpanded[index],
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
                       //upload, download e protocolo

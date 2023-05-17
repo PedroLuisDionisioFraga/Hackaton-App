@@ -3,6 +3,11 @@ import 'package:flutter_application_1/Presentation/Pages/Authentication/log_in.d
 import 'package:flutter_application_1/Presentation/Pages/Authentication/sign_up.dart';
 import 'package:flutter_application_1/Presentation/Pages/main_screen.dart';
 import 'Database/firebase_helper.dart';
+import 'Presentation/Pages/complete_list.dart';
+import 'Presentation/Pages/monitoring_page.dart';
+import 'Presentation/Pages/pie_chart.dart';
+import 'Presentation/Pages/produtos_disponiveis.dart';
+import 'Presentation/Pages/speedometer.dart';
 import 'Presentation/Themes/dark_theme.dart';
 import 'Presentation/Themes/light_theme.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -29,7 +34,13 @@ class MainApp extends StatelessWidget {
         '/SignUpPage': (context) => const SignUpPage(),
         '/LoginPage': (context) => const LoginPage(),
         '/mainPage': (context) => const MainMenu(),
-        // '/monitoringPage': (context) => MonitoringPage(),
+        '/monitoringPage': (context) => const MonitoringPage(),
+        '/CompleteList': (context) => const ContainerList(),
+        '/ChartPie': (context) => const ChartPie(),
+        '/ProdutosDisponiveis': (context) => const ProdutosDisponiveis(),
+        '/speedometer':(context) => const SpeedometerUpload(),
+        '/ConnectionsApp':(context) => const ConnectionsApp(),
+        '/Connections':(context) => const ConnectionsContainer(),
       },
       home: const MainMenu(),
     );
