@@ -6,15 +6,18 @@ import 'Database/firebase_helper.dart';
 import 'Presentation/Pages/complete_list.dart';
 import 'Presentation/Pages/monitoring_page.dart';
 import 'Presentation/Pages/pie_chart.dart';
-import 'Presentation/Pages/produtos_disponiveis.dart';
+import 'Presentation/Pages/Home/Sessions/our_products_session.dart';
 import 'Presentation/Pages/speedometer.dart';
 import 'Presentation/Themes/dark_theme.dart';
 import 'Presentation/Themes/light_theme.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'Presentation/Home/homepage.dart';
+import 'Presentation/Pages/Home/homepage.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   await FirebaseHelper.firebaseConnection();
+  // Definindo o local pra poder fazer a conversão de moeda
+  initializeDateFormatting("pt_Br");
   runApp(const MainApp());
 }
 
@@ -34,13 +37,13 @@ class MainApp extends StatelessWidget {
         '/SignUpPage': (context) => const SignUpPage(),
         '/LoginPage': (context) => const LoginPage(),
         '/mainPage': (context) => const MainMenu(),
-        '/monitoringPage': (context) => const MonitoringPage(),
+        '/monitoringPage': (context) => const MonitoringPage(index: 0),
         '/CompleteList': (context) => const ContainerList(),
         '/ChartPie': (context) => const ChartPie(),
-        '/ProdutosDisponiveis': (context) => const ProdutosDisponiveis(),
-        '/speedometer':(context) => const SpeedometerUpload(),
-        '/ConnectionsApp':(context) => const ConnectionsApp(),
-        '/Connections':(context) => const ConnectionsContainer(),
+        '/OurProductsSession': (context) => const OurProductsSession(),
+        '/speedometer': (context) => const SpeedometerUpload(),
+        '/ConnectionsApp': (context) => const ConnectionsApp(),
+        '/Connections': (context) => const ConnectionsContainer(),
       },
       home: const MainMenu(),
     );

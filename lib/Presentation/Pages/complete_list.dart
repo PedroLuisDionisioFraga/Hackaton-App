@@ -13,36 +13,35 @@ class _ContainerListState extends State<ContainerList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-        itemCount: 10, // Número de itens na lista
-        itemBuilder: (context, index) {
-          return Card(
-            child: ExpansionTile(
-              title: Text('Requisição $index'),
-              onExpansionChanged: (expanded) {
-                setState(() {
-                  itemExpanded[index] = expanded;
-                });
-              },
-              initiallyExpanded: itemExpanded[index],
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      //upload, download e protocolo
-                      Text('Nome:  $index'),
-                      Text('Upload:  $index'),
-                      Text('Download:  $index'),
-                    ],
-                  )
+    return ListView.builder(
+      itemCount: 10, // Número de itens na lista
+      itemBuilder: (context, index) {
+        return Card(
+          child: ExpansionTile(
+            backgroundColor: Colors.transparent,
+            title: Text('Requisição $index'),
+            onExpansionChanged: (expanded) {
+              setState(() {
+                itemExpanded[index] = expanded;
+              });
+            },
+            initiallyExpanded: itemExpanded[index],
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    //upload, download e protocolo
+                    Text('Nome:  $index'),
+                    Text('Upload:  $index'),
+                    Text('Download:  $index'),
+                  ],
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

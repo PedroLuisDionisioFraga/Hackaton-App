@@ -61,7 +61,7 @@ class MainButtons extends StatelessWidget {
               width: screenWidth * 0.1,
               child: OutlinedButton(
                 onPressed: () {
-                  onMenuClick("Nossos Produtos");
+                  onMenuClick("OurProductsSession");
                 },
                 child: const Text(
                   'Nossos Produtos',

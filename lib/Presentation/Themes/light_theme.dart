@@ -45,6 +45,11 @@ class LightTheme {
         color: textColor,
         fontSize: 12.5,
       ),
+      titleMedium: TextStyle(
+        fontSize: 18,
+        color: Colors.white,
+        fontFamily: "Inter",
+      ),
       titleLarge: TextStyle(
         fontSize: 25,
         fontFamily: "Inter",

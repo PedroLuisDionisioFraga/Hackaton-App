@@ -1,12 +1,11 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_application_1/Presentation/Home/Sessions/about_us.dart';
-import 'package:flutter_application_1/Presentation/Home/Sessions/more_informations.dart';
-import 'package:flutter_application_1/Presentation/Home/Sessions/our_products.dart';
 import 'package:flutter_application_1/Shared/Utils/gradient.dart';
-import '../../Errors/not_found_session_exception.dart';
-import '../../Shared/Widgets/app_bar.dart';
+import '../../../Errors/not_found_session_exception.dart';
+import '../../../Shared/Widgets/app_bar.dart';
+import 'Sessions/more_info.dart';
+import 'Sessions/our_products_session.dart';
 
 /*
   Caso eu queira deixar meu menu fixo eu envolvo o "SingleChildScrollView"
@@ -45,11 +44,10 @@ class _HomePageState extends State<HomePage> {
     final RenderBox renderBox;
 
     switch (value) {
-      case "Nossos Produtos":
+      case "OurProductsSession":
         renderBox = session1.currentContext!.findRenderObject() as RenderBox;
         break;
       case "Mais informações":
-        print("oi");
         renderBox = session2.currentContext!.findRenderObject() as RenderBox;
         break;
       default:
@@ -91,7 +89,6 @@ class _HomePageState extends State<HomePage> {
               const IncluiStack(),
               //ícone principal e tudo mais
               OurProductsSession(key: session1),
-              AboutUsSession(key: session4),
               MoreInformationSession(key: session2),
               //parte preta da página
               BottomPage(key: session3),

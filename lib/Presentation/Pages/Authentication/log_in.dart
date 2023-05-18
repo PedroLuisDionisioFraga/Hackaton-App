@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Presentation/Pages/main_screen.dart';
 import 'package:flutter_application_1/Shared/Utils/validators_authentication.dart';
+import 'package:rive/rive.dart';
 import '../../../Database/firebase_helper.dart';
+import '../../../Shared/Utils/screen_size.dart';
 import '../../../Shared/Widgets/text_form_field.dart';
 
 class LoginPage extends StatefulWidget {
@@ -44,18 +46,18 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void onFieldSubmitted(String text) {
-    if (password.text == confirmPassword.text) {
-      if (formKey.currentState!.validate()) {
-        formKey.currentState!.save();
-        FirebaseHelper.signUp(
-          name: username.text,
-          email: email.text,
-          password: password.text,
-        );
-      }
-    } else {
-      // Fazer um aviso aqui
-    }
+    formKey.currentState!.save();
+    FirebaseHelper.loginWithEmail(
+      email: email.text,
+      password: password.text,
+    );
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return const MainMenu();
+        },
+      ),
+    );
   }
 
   @override
@@ -98,69 +100,98 @@ class _LoginPageState extends State<LoginPage> {
         )
         .inputField();
 
+    double screenHeight = ScreenSize.getHeight(context);
+    double screenWidth = ScreenSize.getWidth(context);
+    double releaseWidthHeight = screenWidth / screenHeight;
+    double mediumWidthHeight = (screenWidth + screenHeight) / 2;
+    // TODO: Fazer uma lógica pra travar a largura e altura caso a tela fique muito desproporcional
+    BoxConstraints? boxConstraints() {
+      if (releaseWidthHeight > 1.5) {
+        return BoxConstraints(
+          maxWidth: screenHeight * 0.8,
+        );
+      }
+      return null;
+    }
+
     return Scaffold(
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.4,
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ),
-          ),
-          child: Form(
-            key: formKey,
-            child: ListView(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 27.5),
-              shrinkWrap: true,
-              children: [
-                const SizedBox(height: 20),
-                Align(
-                  child: Text(
-                    "Login",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-                const SizedBox(height: 30),
-                emailField,
-                const SizedBox(height: 30),
-                passwordField,
-                const SizedBox(height: 30),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 10, right: 15, top: 20),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          formKey.currentState!.save();
-                          setState(() {
-                            isPasswordValid = true;
-                          });
-                          FirebaseHelper.loginWithEmail(email: email.text, password: password.text).then((value) {
-                            if (value != null && value.emailVerified) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return const MainMenu();
-                                }),
-                              );
-                            }
-                          });
-                        } else {
-                          setState(() {
-                            isPasswordValid = false;
-                          });
-                        }
-                      },
-                      child: const Text("Login"),
+      body: Column(
+        children: [
+          const MainButtonsMainScreen(),
+          Expanded(
+            child: Center(
+              child: Row(
+                children: [
+                  const Spacer(),
+                  Expanded(
+                    flex: 7,
+                    child: Padding(
+                      padding: EdgeInsets.all(mediumWidthHeight * 0.07),
+                      child: RiveAnimation.asset(
+                        "Assets/Animations/log_in_animation.riv",
+                        placeHolder: AspectRatio(
+                          aspectRatio: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(mediumWidthHeight * 0.05),
+                            child: const CircularProgressIndicator(),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  const Spacer(flex: 2),
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      constraints: boxConstraints(),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                      child: Form(
+                        key: formKey,
+                        child: ListView(
+                          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 27.5),
+                          shrinkWrap: true,
+                          children: [
+                            const SizedBox(height: 20),
+                            Align(
+                              child: Text(
+                                "Login",
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                            ),
+                            const SizedBox(height: 30),
+                            emailField,
+                            const SizedBox(height: 30),
+                            passwordField,
+                            const SizedBox(height: 30),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  // Não precisa do parâmetro
+                                  onFieldSubmitted("_");
+                                },
+                                child: Text(
+                                  "Fazer Login",
+                                  style: Theme.of(context).textTheme.titleMedium,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
