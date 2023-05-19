@@ -6,34 +6,43 @@ class ChartPie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, double> dataMap = {
-      "HTTPS": 5,
-      "SMTP": 3,
-      "TCP/IP": 2,
-    };
+    Map<String, double> dataMap = {"tls": 1, "srtp": 1, "http": 2, "https": 2, "dns": 2, "smtp": 3, "imap": 1};
 
     final colorList = [
       Colors.greenAccent,
       Colors.blueAccent,
       Colors.redAccent,
       Colors.yellowAccent,
+      const Color.fromARGB(255, 240, 105, 206),
+      Colors.blueAccent,
+      Colors.redAccent,
     ];
 
-    return PieChart(
-      dataMap: dataMap,
-      animationDuration: const Duration(milliseconds: 800),
-      chartLegendSpacing: 32,
-      chartRadius: MediaQuery.of(context).size.width / 5,
-      colorList: colorList,
-      initialAngleInDegree: 0,
-      chartType: ChartType.ring,
-      ringStrokeWidth: 32,
-      chartValuesOptions: const ChartValuesOptions(
-        showChartValueBackground: true,
-        showChartValues: true,
-        showChartValuesInPercentage: false,
-        showChartValuesOutside: false,
-        decimalPlaces: 1,
+    return Padding(
+      padding: const EdgeInsets.all(42),
+      child: PieChart(
+        dataMap: dataMap,
+        animationDuration: const Duration(milliseconds: 800),
+        chartLegendSpacing: 80,
+        chartRadius: MediaQuery.of(context).size.width / 5,
+        colorList: colorList,
+        initialAngleInDegree: 0,
+        chartType: ChartType.ring,
+        ringStrokeWidth: 32,
+        legendOptions: const LegendOptions(
+          legendTextStyle: TextStyle(
+            fontFamily: "Inter",
+            fontSize: 18,
+          ),
+          legendShape: BoxShape.rectangle,
+        ),
+        chartValuesOptions: const ChartValuesOptions(
+          showChartValues: false,
+          showChartValueBackground: false,
+          showChartValuesInPercentage: false,
+          showChartValuesOutside: false,
+          decimalPlaces: 1,
+        ),
       ),
     );
   }

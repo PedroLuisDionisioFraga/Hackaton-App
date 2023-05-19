@@ -3,6 +3,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/Presentation/Pages/Notes/Transaction_list/Components/note_title.dart';
 import 'package:intl/intl.dart';
 import '../../Models/note.dart';
+import '../../Shared/Widgets/a_aleatorio_apps.dart';
+import '../../Shared/Widgets/a_alertas.dart';
 import '../../Shared/Widgets/card.dart';
 import 'Home/homepage.dart';
 import 'Notes/Transaction_list/Components/note_body.dart';
@@ -251,7 +253,7 @@ class _PagesToMyHomePageState extends State<PagesToMyHomePage> {
                     ).animate().slide(begin: const Offset(0, -10), duration: const Duration(milliseconds: 500)),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.6,
+                    height: MediaQuery.of(context).size.height * 0.65,
                     width: 700,
                     child: Padding(
                       //necessário fazer um for para todos os apps
@@ -278,11 +280,12 @@ class _PagesToMyHomePageState extends State<PagesToMyHomePage> {
                   Align(
                     alignment: Alignment.center,
                     child: FloatingActionButton(
+                      backgroundColor: Colors.white,
                       onPressed: () => _openTransactionForm(context),
                       splashColor: Theme.of(context).splashColor,
-                      child: Icon(
+                      child: const Icon(
                         Icons.add,
-                        color: Theme.of(context).iconTheme.color,
+                        color: Colors.blue,
                       ),
                     ),
                   ),
@@ -326,18 +329,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
                 ).animate().slide(begin: const Offset(0, -10), duration: const Duration(milliseconds: 500)),
               ),
-              SizedBox(
+              Container(
                 height: 300,
                 width: 400,
-                child: ListView(
-                  padding: const EdgeInsets.all(8),
-                  children: const <Widget>[
-                    Padding(
-                      //necessário fazer um for para todos os apps
-                      padding: EdgeInsets.all(8.0),
-                      child: ConnectionsApp(),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
                     ),
                   ],
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                ),
+                child: const Padding(
+                  //necessário fazer um for para todos os apps
+                  padding: EdgeInsets.all(8.0),
+                  child: ContainerApps(),
                 ),
               ),
             ],
@@ -358,7 +368,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: const Text(
-                  'Protocolos utilizados',
+                  'Protocolos utilizados no dia de hoje',
                   style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
                 ).animate().slide(begin: const Offset(0, -10), duration: const Duration(milliseconds: 500)),
               ),
@@ -369,7 +379,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 height: 400,
                 width: 500,
-                child: const SizedBox(height: 300, width: 300, child: ChartPie()),
+                child: const SizedBox(
+                  height: 300,
+                  width: 300,
+                  child: ChartPie(),
+                ),
               )
             ],
           ),
@@ -395,11 +409,15 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
-                  height: 350,
+                  height: 400,
                   width: 350,
                   decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)), color: Color.fromARGB(255, 255, 255, 255)),
                   child: Column(
                     children: [
+                      const Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Increment(),
+                      ),
                       const Padding(
                         padding: EdgeInsets.all(15.0),
                         child: Text(
@@ -439,7 +457,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: const Text(
-                  'Velocidade',
+                  'Velocidade média dos Uploads e Downloads de hoje',
                   style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
                 ).animate().slide(begin: const Offset(0, -10), duration: const Duration(milliseconds: 500)),
               ),
@@ -532,12 +550,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ).animate().slide(begin: const Offset(0, -10), duration: const Duration(milliseconds: 500)),
               ),
               Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 2.5, // Define a largura da borda
-                  ),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Colors.white,
                 ),
                 height: 400,
                 width: 300,

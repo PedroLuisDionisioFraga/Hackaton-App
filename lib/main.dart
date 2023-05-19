@@ -14,6 +14,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'Presentation/Pages/Home/homepage.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'Shared/Widgets/a_aleatorio_apps.dart';
+
 void main() async {
   await FirebaseHelper.firebaseConnection();
   // Definindo o local pra poder fazer a conversão de moeda
@@ -42,10 +44,10 @@ class MainApp extends StatelessWidget {
         '/ChartPie': (context) => const ChartPie(),
         '/OurProductsSession': (context) => const OurProductsSession(),
         '/speedometer': (context) => const SpeedometerUpload(),
-        '/ConnectionsApp': (context) => const ConnectionsApp(),
+        '/ContainerApps': (context) => const ContainerApps(),
         '/Connections': (context) => const ConnectionsContainer(),
       },
-      home: const MainMenu(),
+      home: const InitialScreen(),
     );
   }
 }

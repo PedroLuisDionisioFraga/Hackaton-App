@@ -97,6 +97,7 @@ class _LoginPageState extends State<LoginPage> {
           onEditingComplete: () {
             FocusScope.of(context).requestFocus(focusConfirmPassword);
           },
+          onFieldSubmitted: onFieldSubmitted,
         )
         .inputField();
 

@@ -110,7 +110,7 @@ void splittingJsonFromPort50001(Map<String, dynamic> map) {
           break;
         case "download":
           download = v;
-          streamControllerDownload.add(download);
+          //streamControllerDownload.add(download);
           break;
         case "upload":
           upload = v;

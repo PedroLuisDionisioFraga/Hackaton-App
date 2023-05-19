@@ -18,9 +18,6 @@ class MyCardStyle extends StatelessWidget {
         horizontal: 5,
       ),
       shape: const RoundedRectangleBorder(
-        side: BorderSide(
-          width: 1,
-        ),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       color: Color.fromARGB(255, 255, 255, 255),

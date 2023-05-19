@@ -114,6 +114,7 @@ class LightTheme {
     cardTheme: const CardTheme(
       elevation: 10,
       shadowColor: Colors.black,
+      color: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),

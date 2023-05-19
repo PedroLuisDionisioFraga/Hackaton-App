@@ -35,8 +35,8 @@ class _HomePageState extends State<HomePage> {
   // Usaremos "GlobalKey"'s pra recuperar as dimensões das sessões
   final GlobalKey session1 = GlobalKey();
   final GlobalKey session2 = GlobalKey();
-  final GlobalKey session3 = GlobalKey();
-  final GlobalKey session4 = GlobalKey();
+  // final GlobalKey session3 = GlobalKey();
+  // final GlobalKey session4 = GlobalKey();
   //final GlobalKey session5 = GlobalKey();
 
   void onMenuClick(String value) {
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     session1.currentState!.dispose();
     session2.currentState!.dispose();
-    session3.currentState!.dispose();
+    //session3.currentState!.dispose();
     scrollController.dispose();
     super.dispose();
   }
@@ -87,11 +87,14 @@ class _HomePageState extends State<HomePage> {
               //linha de botões superior
               MainButtons(onMenuClick: onMenuClick),
               const IncluiStack(),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.3),
               //ícone principal e tudo mais
-              OurProductsSession(key: session1),
-              MoreInformationSession(key: session2),
+              OurProductsSession(key: session2),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.3),
+              MoreInformationSession(key: session1),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               //parte preta da página
-              BottomPage(key: session3),
+              const BottomPage(),
             ],
           ),
         ),
@@ -262,97 +265,79 @@ class _ScreenCenterState extends State<ScreenCenter> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.92,
-      child: Column(children: [
-        Center(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.12,
-            width: MediaQuery.of(context).size.width,
-            child: Row(
-              children: [
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 10.0, top: 10.0),
-                    child: Text('/Página Inicial', style: TextStyle(fontSize: 15, color: Colors.white)),
-                  ),
-                ).animate().slide(begin: const Offset(0, -10), duration: const Duration(seconds: 1)),
-                const Align(
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 680.0),
-                    child: Text('Seja bem-vindo(a) ao CyberFlow!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white)),
-                  ),
-                ).animate().slide(begin: const Offset(0, -10), duration: const Duration(seconds: 1)),
-              ],
-            ),
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          Center(
+            child: Text('Seja bem-vindo(a) ao CyberFlow!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white)).animate().slide(begin: const Offset(0, -10), duration: const Duration(seconds: 1)),
           ),
-        ),
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 50.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.8,
-                    width: MediaQuery.of(context).size.width * 0.40,
-                    child: Padding(
-                      padding: const EdgeInsets.all(80.0),
-                      child: Container(
-                        decoration: DottedDecoration(shape: Shape.circle, color: Colors.white, strokeWidth: 5, dash: const <int>[12, 10]),
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        width: MediaQuery.of(context).size.width * 0.1,
-                        child: SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          child: Padding(
-                            padding: const EdgeInsets.all(60.0),
-                            child: Image.asset('Assets/Images/icon.png').animate(onPlay: (controller) => controller.repeat()).rotate(duration: 60000.milliseconds, begin: -1, end: 1),
-                          ),
-                        ).animate().scaleXY(duration: 500.ms, begin: 0.0, end: 1.1),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 50.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.40,
+                      child: Padding(
+                        padding: const EdgeInsets.all(80.0),
+                        child: Container(
+                          decoration: DottedDecoration(shape: Shape.circle, color: Colors.white, strokeWidth: 5, dash: const <int>[12, 10]),
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(60.0),
+                              child: Image.asset('Assets/Images/icon.png').animate(onPlay: (controller) => controller.repeat()).rotate(duration: 60000.milliseconds, begin: -1, end: 1),
+                            ),
+                          ).animate().scaleXY(duration: 500.ms, begin: 0.0, end: 1.1),
+                        ),
                       ),
-                    ),
-                  ).animate().scaleXY(duration: 500.ms, begin: 0.0, end: 1.1).then(delay: const Duration(milliseconds: 1000)).animate(onPlay: (controller) => controller.repeat()).rotate(duration: 60000.milliseconds, begin: 1, end: -1),
-                ],
+                    ).animate().scaleXY(duration: 500.ms, begin: 0.0, end: 1.1).then(delay: const Duration(milliseconds: 1000)).animate(onPlay: (controller) => controller.repeat()).rotate(duration: 60000.milliseconds, begin: 1, end: -1),
+                  ],
+                ),
               ),
-            ),
-            Column(
-              children: [
-                Align(
-                  alignment: Alignment.topRight,
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    height: MediaQuery.of(context).size.height * 0.7,
-                    child: const Center(
-                      child: Text(
-                        'As nuvenzinhas ao lado indicam quais são as opções de monitoriamento para você!',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+              Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: MediaQuery.of(context).size.height * 0.7,
+                      child: const Center(
+                        child: Text(
+                          'As nuvenzinhas ao lado indicam quais são as opções de monitoriamento para você!',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 200),
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Image.asset('Assets/Images/chatbot.png').animate(onPlay: (controller) => controller.repeat()).shimmer(delay: 1000.ms, duration: 1800.ms),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 200),
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Image.asset('Assets/Images/chatbot.png').animate(onPlay: (controller) => controller.repeat()).shimmer(delay: 1000.ms, duration: 1800.ms),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            )
-          ],
-        )
-      ]),
+                ],
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
