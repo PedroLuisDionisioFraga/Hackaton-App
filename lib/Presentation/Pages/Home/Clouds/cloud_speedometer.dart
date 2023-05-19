@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
 import '../../monitoring_page.dart';
 
 class MyCloudSpeedometer extends StatelessWidget {

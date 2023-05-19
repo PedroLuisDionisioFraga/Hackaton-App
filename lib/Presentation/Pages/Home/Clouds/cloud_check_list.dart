@@ -14,9 +14,8 @@ class MyCloudCheckList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double mediumSize = (constrains.maxHeight + constrains.maxWidth) / 2;
-
     return Tooltip(
-      message: 'Alertas',
+      message: 'Protocolos',
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(

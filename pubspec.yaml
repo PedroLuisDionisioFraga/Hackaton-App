@@ -50,6 +50,8 @@ flutter:
     - Assets/Images/warning.png
     - Assets/Images/chatbot.png
     - Assets/Images/check.png
+    - Assets/Images/notepad.png
     - Assets/Animations/log_in_animation.riv
     - Assets/Animations/sign_up_animation.riv
     - Assets/Animations/bolls_swiming.riv
+    - Assets/Animations/mad_scientist.riv

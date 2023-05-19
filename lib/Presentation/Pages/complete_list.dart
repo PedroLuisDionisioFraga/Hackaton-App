@@ -4,6 +4,33 @@ import 'package:flutter/material.dart';
 
 var random = Random();
 
+class Hour extends StatefulWidget {
+  const Hour({super.key});
+
+  @override
+  State<Hour> createState() => _HourState();
+}
+
+class _HourState extends State<Hour> {
+  DateTime currentDate = DateTime.now();
+
+   @override
+  void initState() {
+    super.initState();
+    // Atualiza a data a cada segundo
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        currentDate = DateTime.now();
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 //lista de nomes
 List nomes = ['chrome.exe', 'Teams_windows_x64', 'Discord.exe'];
 int randomint = random.nextInt(3);
@@ -29,6 +56,7 @@ class ContainerList extends StatefulWidget {
 }
 
 class _ContainerListState extends State<ContainerList> {
+  var currentDate = DateTime.now();
   List<bool> itemExpanded = List.generate(5, (index) => false);
 
   Timer? timer;
@@ -37,6 +65,11 @@ class _ContainerListState extends State<ContainerList> {
   void initState() {
     super.initState();
     startTimer();
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        currentDate = DateTime.now();
+      });
+    });
   }
 
   @override
@@ -85,6 +118,7 @@ class _ContainerListState extends State<ContainerList> {
                         const Text('Tipo de conteúdo: application/json'),
                         Text('Métodos utilizados: $metodos'),
                         Text('Tamanho do pacote: $numPac'),
+                        Text('Horário: ${currentDate.toString()}')
                       ],
                     )),
               ],

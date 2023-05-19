@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -18,7 +16,7 @@ class MyCloudWarning extends StatelessWidget {
     final double mediumSize = (constrains.maxHeight + constrains.maxWidth) / 2;
 
     return Tooltip(
-      message: 'Alertas',
+      message: 'Avisos',
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(
@@ -39,18 +37,12 @@ class MyCloudWarning extends StatelessWidget {
           ),
           child: Container(
             padding: EdgeInsets.only(
-              bottom: mediumSize * 0.02,
-              left: mediumSize * 0.04,
-              right: mediumSize * 0.045,
-              top: mediumSize * 0.035,
+              bottom: mediumSize * 0.01,
+              left: mediumSize * 0.035,
+              right: mediumSize * 0.04,
+              top: mediumSize * 0.03,
             ),
-            child: Transform.rotate(
-              angle: pi / 8,
-              child: Image.asset(
-                'Assets/Images/neural.png',
-                //fit: BoxFit.contain,
-              ),
-            ),
+            child: Image.asset('Assets/Images/warning.png'),
           ),
         ).animate(onPlay: (controller) => controller.repeat()).scaleXY(duration: 1500.ms, begin: 1.0, end: 1.1).then(delay: const Duration(milliseconds: 100)).scaleXY(duration: 1500.ms, begin: 1.1, end: 1.0),
       ),

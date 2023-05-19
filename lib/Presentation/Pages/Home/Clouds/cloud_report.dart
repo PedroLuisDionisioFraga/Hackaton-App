@@ -16,7 +16,7 @@ class MyCloudReport extends StatelessWidget {
     final double mediumSize = (constrains.maxHeight + constrains.maxWidth) / 2;
 
     return Tooltip(
-      message: 'Alertas',
+      message: 'Relatório Geral',
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(

@@ -248,7 +248,7 @@ class _PagesToMyHomePageState extends State<PagesToMyHomePage> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: const Text(
-                      'Conexões',
+                      'Anotações em Geral',
                       style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
                     ).animate().slide(begin: const Offset(0, -10), duration: const Duration(milliseconds: 500)),
                   ),
@@ -618,7 +618,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.connect_without_contact),
-              label: 'Conexões',
+              label: 'Anotações em Geral',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.computer_outlined),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../../Presentation/Pages/Home/homepage.dart';
 import '../Utils/screen_size.dart';
 
 class MainButtons extends StatelessWidget {
@@ -35,7 +36,7 @@ class MainButtons extends StatelessWidget {
               '&',
               style: Theme.of(context).textTheme.titleLarge,
             ).animate().slide(
-                  begin: const Offset(0, -10),
+                  begin: const Offset(0, -40),
                   duration: const Duration(seconds: 1),
                 ),
           ),
@@ -58,7 +59,7 @@ class MainButtons extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0, right: 8),
             child: SizedBox(
               height: screenHeight * 0.05,
-              width: screenWidth * 0.1,
+              width: screenWidth * 0.115,
               child: OutlinedButton(
                 onPressed: () {
                   onMenuClick("OurProductsSession");
@@ -74,7 +75,7 @@ class MainButtons extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0, right: 8),
             child: SizedBox(
               height: screenHeight * 0.05,
-              width: screenWidth * 0.1,
+              width: screenWidth * 0.115,
               child: OutlinedButton(
                 onPressed: () {
                   onMenuClick("Mais informações");
@@ -110,12 +111,7 @@ class MainButtons extends StatelessWidget {
           const Expanded(
             child: Spacer(),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.translate),
-            iconSize: 25,
-            color: const Color.fromRGBO(0, 114, 223, 100),
-          ),
+          Container(color: Colors.white, child: LanguageButton()),
           Align(
             alignment: AlignmentDirectional.centerStart,
             child: Padding(
@@ -143,7 +139,7 @@ class MainButtons extends StatelessWidget {
               padding: const EdgeInsets.only(left: 10, right: 5),
               child: SizedBox(
                 height: screenHeight * 0.05,
-                width: screenWidth * 0.1,
+                width: screenWidth * 0.115,
                 child: OutlinedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed('/SignUpPage');
@@ -151,7 +147,7 @@ class MainButtons extends StatelessWidget {
                   child: const Expanded(
                     child: Text(
                       'Realizar cadastro',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
                     ),
                   ),
                 ),

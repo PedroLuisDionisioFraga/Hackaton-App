@@ -20,7 +20,7 @@ class MyCardStyle extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
-      color: Color.fromARGB(255, 255, 255, 255),
+      color: Color.fromARGB(255, 194, 235, 252),
       child: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 5,

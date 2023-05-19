@@ -14,6 +14,8 @@ class MoreInformationSession extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Inter",
               fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
           Text(
@@ -21,6 +23,8 @@ class MoreInformationSession extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Inter",
               fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
           Text(
@@ -28,6 +32,8 @@ class MoreInformationSession extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Inter",
               fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
           Text(
@@ -35,6 +41,8 @@ class MoreInformationSession extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Inter",
               fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
           Text(
@@ -42,6 +50,8 @@ class MoreInformationSession extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Inter",
               fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
           Text(
@@ -49,8 +59,10 @@ class MoreInformationSession extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Inter",
               fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
-          )
+          ),
         ],
       ),
     );

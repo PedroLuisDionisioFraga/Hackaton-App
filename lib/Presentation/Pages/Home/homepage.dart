@@ -76,32 +76,78 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        controller: scrollController,
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: MyGradient.getGradient(context),
-          ),
-          child: Column(
-            // Dividindo a página em sessões
-            children: <Widget>[
-              //linha de botões superior
-              MainButtons(onMenuClick: onMenuClick),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: MyStackTest(),
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            controller: scrollController,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: MyGradient.getGradient(context),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.3),
-              //ícone principal e tudo mais
-              OurProductsSession(key: session2),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.3),
-              MoreInformationSession(key: session1),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-              //parte preta da página
-              const BottomPage(),
-            ],
+              child: Column(
+                // Dividindo a página em sessões
+                children: <Widget>[
+                  //linha de botões superior
+                  MainButtons(onMenuClick: onMenuClick),
+                  Row(
+                    children: [
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: MyStackTest(),
+                      ),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.height * 0.7,
+                          child: const Center(
+                            child: Text(
+                              'As nuvenzinhas ao lado indicam quais são as opções de monitoriamento para você!',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+                  //ícone principal e tudo mais
+                  OurProductsSession(key: session2),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                  const Divider(
+                    height: 40,
+                    thickness: 2,
+                    indent: 60,
+                    endIndent: 60,
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                  MoreInformationSession(key: session1),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                  //parte preta da página
+                  const BottomPage(),
+                ],
+              ),
+            ),
           ),
-        ),
+          Positioned(
+            right: 32,
+            bottom: 24,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 200),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.1,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('Assets/Images/chatbot.png').animate(onPlay: (controller) => controller.repeat()).shimmer(delay: 1000.ms, duration: 1800.ms),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -273,7 +319,7 @@ class _ScreenCenterState extends State<ScreenCenter> {
         children: [
           const SizedBox(height: 20),
           Center(
-            child: Text('Seja bem-vindo(a) ao CyberFlow!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white)).animate().slide(begin: const Offset(0, -10), duration: const Duration(seconds: 1)),
+            child: const Text('Seja bem-vindo(a) ao CyberFlow!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white)).animate().slide(begin: const Offset(0, -10), duration: const Duration(seconds: 1)),
           ),
           Row(
             children: [
@@ -319,19 +365,6 @@ class _ScreenCenterState extends State<ScreenCenter> {
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 200),
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Image.asset('Assets/Images/chatbot.png').animate(onPlay: (controller) => controller.repeat()).shimmer(delay: 1000.ms, duration: 1800.ms),
                         ),
                       ),
                     ),
@@ -384,6 +417,45 @@ class BottomPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+List<String> supportedLanguages = [
+  'Español',
+  'English',
+  'Português',
+];
+
+class LanguageButton extends StatefulWidget {
+  @override
+  _LanguageButtonState createState() => _LanguageButtonState();
+}
+
+class _LanguageButtonState extends State<LanguageButton> {
+  String selectedLanguage = 'Português';
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonHideUnderline(
+      child: DropdownButton<String>(
+        dropdownColor: Colors.white,
+        value: selectedLanguage,
+        items: supportedLanguages.map((language) {
+          return DropdownMenuItem<String>(
+            value: language,
+            child: Text(
+              language,
+              style: const TextStyle(color: Colors.black),
+            ),
+          );
+        }).toList(),
+        onChanged: (newLanguage) {
+          setState(() {
+            selectedLanguage = newLanguage!;
+          });
+        },
       ),
     );
   }

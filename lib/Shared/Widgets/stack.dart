@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../Presentation/Pages/Home/Clouds/cloud_annotation.dart';
 import '../../Presentation/Pages/Home/Clouds/cloud_check_list.dart';
 import '../../Presentation/Pages/Home/Clouds/cloud_warning.dart';
-import '../../Presentation/Pages/Home/Clouds/cloud_notes.dart';
+import '../../Presentation/Pages/Home/Clouds/cloud_apps.dart';
 import '../../Presentation/Pages/Home/Clouds/cloud_report.dart';
 import '../../Presentation/Pages/Home/Clouds/cloud_speedometer.dart';
-import '../../Presentation/Pages/Home/Clouds/cloud_neural.dart';
 import '../../Presentation/Pages/Home/image_center.dart';
 
 class MyStackTest extends StatelessWidget {
@@ -16,7 +16,15 @@ class MyStackTest extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.8,
       width: MediaQuery.of(context).size.width * 0.5,
-      color: Colors.green,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Colors.green.withOpacity(0.6),
+            Colors.green.withOpacity(0.25),
+            Colors.green.withOpacity(0.0),
+          ],
+        ),
+      ),
       child: Center(
         child: AspectRatio(
           aspectRatio: 1,
@@ -28,12 +36,12 @@ class MyStackTest extends StatelessWidget {
                   Positioned(
                     top: constrains.maxHeight * 0.06,
                     left: constrains.maxWidth * 0.2,
-                    child: MyCloudWarning(constrains: constrains),
+                    child: MyCloudNotes(constrains: constrains),
                   ),
                   Positioned(
                     top: constrains.maxHeight * 0.06,
                     left: constrains.maxWidth * 0.65,
-                    child: MyCloudNeural(constrains: constrains),
+                    child: MyCloudWarning(constrains: constrains),
                   ),
                   Positioned(
                     top: constrains.maxHeight * 0.35,
@@ -48,13 +56,13 @@ class MyStackTest extends StatelessWidget {
                   ),
                   Positioned(
                     top: constrains.maxHeight * 0.7,
-                    left: constrains.maxWidth * 0.15,
+                    left: constrains.maxWidth * 0.175,
                     child: MyCloudCheckList(constrains: constrains),
                   ),
                   Positioned(
                     top: constrains.maxHeight * 0.7,
                     right: constrains.maxWidth * 0.15,
-                    child: MyCloudNotes(constrains: constrains),
+                    child: MyCloudApps(constrains: constrains),
                   ),
                 ],
               );
