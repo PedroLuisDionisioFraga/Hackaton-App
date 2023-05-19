@@ -44,6 +44,7 @@ flutter:
     - Assets/Images/application.png
     - Assets/Images/check-list.png
     - Assets/Images/neural.png
+    - Assets/Images/notes.png
     - Assets/Images/report.png
     - Assets/Images/speedometer.png
     - Assets/Images/warning.png

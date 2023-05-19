@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/Shared/Utils/gradient.dart';
 import '../../../Errors/not_found_session_exception.dart';
 import '../../../Shared/Widgets/app_bar.dart';
+import '../../../Shared/Widgets/stack.dart';
 import 'Sessions/more_info.dart';
 import 'Sessions/our_products_session.dart';
 
@@ -86,7 +87,10 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               //linha de botões superior
               MainButtons(onMenuClick: onMenuClick),
-              const IncluiStack(),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: MyStackTest(),
+              ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.3),
               //ícone principal e tudo mais
               OurProductsSession(key: session2),

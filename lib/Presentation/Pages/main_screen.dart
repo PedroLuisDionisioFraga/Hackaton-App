@@ -1,6 +1,7 @@
 import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../../Shared/Widgets/stack.dart';
 import 'Home/homepage.dart';
 import 'monitoring_page.dart';
 
@@ -23,16 +24,19 @@ class _MainMenuState extends State<MainMenu> {
           colors: <Color>[Color.fromRGBO(0, 114, 223, 100), Color.fromRGBO(0, 223, 197, 100)],
         ),
       ),
-      child: const SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             //linha de botões superior
-            MainButtonsMainScreen(),
+            const MainButtonsMainScreen(),
             //ícone principal e tudo mais
             Row(
               children: [
-                CloudsMain(),
-                Expanded(
+                SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: const MyStackTest(),
+                ),
+                const Expanded(
                   child: Center(
                     child: Text(
                       'Escolha um modo de monitoramento para começar!',
@@ -47,7 +51,7 @@ class _MainMenuState extends State<MainMenu> {
               ],
             ),
             //parte preta da página
-            BottomPage()
+            const BottomPage()
           ],
         ),
       ),

@@ -47,7 +47,7 @@ class MainApp extends StatelessWidget {
         '/ContainerApps': (context) => const ContainerApps(),
         '/Connections': (context) => const ConnectionsContainer(),
       },
-      home: const InitialScreen(),
+      home: const MainMenu(),
     );
   }
 }
