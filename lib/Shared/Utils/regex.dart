@@ -16,10 +16,10 @@ extension Regex on String {
     containUpperCharacters = contains(RegExp(r"[A-Z]")); // Tem caractere maiúsculo
     greaterThanSix = length >= 7;
 
-    containSpecialCharacters ? null : list.add("Não contém caracteres especiais");
-    containNumbers ? null : list.add("Não contém números");
-    containUpperCharacters ? null : list.add("Não contém caracteres maiúsculos");
-    greaterThanSix ? null : list.add("No mínimo 7 caracteres");
+    containSpecialCharacters ? null : list.add("Pelo menos um caractere especial");
+    containNumbers ? null : list.add("Pelo menos um número");
+    containUpperCharacters ? null : list.add("Pelo menos uma letra maiúscula");
+    greaterThanSix ? null : list.add("Mínimo de 7 caracteres");
 
     return list;
   }
@@ -36,7 +36,7 @@ extension Regex on String {
     return RegExp(r"^[0-9]{8}[0]{3}[0-9]{3}$").hasMatch(this);
   }
 
-  bool isNotValidCellPhone() {
+  bool isInvalidPhone() {
     return !RegExp(r"^\([0-9]{2}\) [0-9] [0-9]{4}-[0-9]{4}$").hasMatch(this);
   }
 }

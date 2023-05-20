@@ -10,6 +10,10 @@ class MyTextFormField {
   final IconButton? suffixIcon;
   final TextCapitalization? capitalization;
   final void Function(String)? onFieldSubmitted;
+  final void Function()? onEditingComplete;
+  final String? Function(String?)? validator;
+  final String? helperText;
+  final bool obscureText;
 
   // Constructors
   const MyTextFormField({
@@ -22,6 +26,10 @@ class MyTextFormField {
     this.suffixIcon,
     this.onFieldSubmitted,
     this.capitalization,
+    this.onEditingComplete,
+    this.validator,
+    this.helperText,
+    this.obscureText = false,
   });
   // Para criar a instância da classe
   const MyTextFormField.empty()
@@ -33,24 +41,39 @@ class MyTextFormField {
         focusName = null,
         suffixIcon = null,
         onFieldSubmitted = null,
-        capitalization = null;
+        capitalization = null,
+        onEditingComplete = null,
+        validator = null,
+        helperText = null,
+        obscureText = false;
 
   Widget inputField() {
-    return TextFormField(
-      focusNode: focusName,
-      controller: controller,
-      textAlignVertical: TextAlignVertical.center,
-      maxLines: 1,
-      textInputAction: inputAction,
-      keyboardType: inputType,
-      textCapitalization: capitalization ?? TextCapitalization.none,
-      onFieldSubmitted: onFieldSubmitted,
-      decoration: InputDecoration(
-        icon: Icon(
-          startIcon,
+    return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Color.fromARGB(255, 227, 227, 227),
+      ),
+      padding: const EdgeInsets.all(11),
+      child: TextFormField(
+        focusNode: focusName,
+        controller: controller,
+        textAlignVertical: TextAlignVertical.center,
+        maxLines: 1,
+        obscureText: obscureText,
+        textInputAction: inputAction,
+        keyboardType: inputType,
+        textCapitalization: capitalization ?? TextCapitalization.none,
+        onFieldSubmitted: onFieldSubmitted,
+        onEditingComplete: onEditingComplete,
+        validator: validator,
+        decoration: InputDecoration(
+          icon: Icon(
+            startIcon,
+          ),
+          labelText: label,
+          suffixIcon: suffixIcon,
+          helperText: helperText,
         ),
-        labelText: label,
-        suffixIcon: suffixIcon,
       ),
     );
   }
@@ -65,6 +88,10 @@ class MyTextFormField {
     FocusNode? focusName,
     IconButton? suffixIcon,
     void Function(String)? onFieldSubmitted,
+    void Function()? onEditingComplete,
+    String? Function(String?)? validator,
+    String? helperText,
+    bool? obscureText,
   }) {
     return MyTextFormField(
       label: label ?? this.label,
@@ -76,6 +103,10 @@ class MyTextFormField {
       focusName: focusName ?? this.focusName,
       suffixIcon: suffixIcon ?? this.suffixIcon,
       onFieldSubmitted: onFieldSubmitted ?? this.onFieldSubmitted,
+      onEditingComplete: onEditingComplete ?? this.onEditingComplete,
+      validator: validator ?? this.validator,
+      helperText: helperText ?? this.helperText,
+      obscureText: obscureText ?? this.obscureText,
     );
   }
 }
