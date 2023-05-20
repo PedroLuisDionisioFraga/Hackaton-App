@@ -1,4 +1,5 @@
 class Process {
+  // ignore: unused_field
   static int _id = 0;
   late final String name;
   late final String createTime;
@@ -15,7 +16,7 @@ class Process {
   // Methods
   void getAllInformation() {
     print(" Nome: $name");
-    print(" createTime: ${this.createTime}");
+    print(" createTime: $createTime");
     print(" lastTimeUpdated: $lastTimeUpdated");
     print(" upload: $upload");
     print(" download: $download");

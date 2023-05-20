@@ -183,44 +183,8 @@ class _PagesToMyHomePageState extends State<PagesToMyHomePage> {
 
   final List<Note> notes = [
     Note(
-      title: "Água",
-      body: "81.4",
-      date: DateTime.now().subtract(const Duration(days: 4)),
-      id: 0,
-    ),
-    Note(
-      title: "Água",
-      body: "81.4",
-      date: DateTime.now().subtract(const Duration(days: 4)),
-      id: 1,
-    ),
-    Note(
-      title: "Água",
-      body: "81.4",
-      date: DateTime.now().subtract(const Duration(days: 4)),
-      id: 2,
-    ),
-    Note(
-      title: "Água",
-      body: "81.4",
-      date: DateTime.now().subtract(const Duration(days: 4)),
-      id: 3,
-    ),
-    Note(
-      title: "Água",
-      body: "81.4",
-      date: DateTime.now().subtract(const Duration(days: 4)),
-      id: 4,
-    ),
-    Note(
-      title: "Água",
-      body: "81.4",
-      date: DateTime.now().subtract(const Duration(days: 4)),
-      id: 5,
-    ),
-    Note(
-      title: "Água",
-      body: "81.4",
+      title: "Renovação do plano",
+      body: "Renovar plano PREMIUM até dia 20/05",
       date: DateTime.now().subtract(const Duration(days: 4)),
       id: 6,
     ),
@@ -300,8 +264,10 @@ class _PagesToMyHomePageState extends State<PagesToMyHomePage> {
   }
 }
 
+// ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
   int index;
+
   MyHomePage({
     Key? key,
     required this.index,
